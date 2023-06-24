@@ -51,3 +51,7 @@ jobs:
         name: plan
         path: ./plan
         if-no-files-found: error
+
+    - name: Show readable plan and save
+      run: terraform show -json ./plan > tfplan.txt
+    
