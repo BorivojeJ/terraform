@@ -53,5 +53,11 @@ jobs:
         if-no-files-found: error
 
     - name: Show readable plan and save
-      run: terraform show -json ./plan
+      run: terraform show -json ./plan > plan.json
     
+    - uses: actions/upload-artifact@v3
+      with:
+        name: plan
+        path: ./plan.json
+        if-no-files-found: error
+        
